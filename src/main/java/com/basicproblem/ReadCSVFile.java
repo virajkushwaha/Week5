@@ -6,10 +6,10 @@ import java.io.IOException;
 
 public class ReadCSVFile {
     public static void main(String[] args) {
-        String filePath = "E:\\CapgeminiTraining\\Program_Prerequisite\\Week5\\Day1_OpenCSV\\src\\main\\java\\com\\basicproblem\\students.csv"; 
+        String filePath = "E:\\CapgeminiTraining\\Program_Prerequisite\\Week5\\Day1_OpenCSV\\src\\main\\java\\com\\basicproblem\\students.csv";
         readCSV(filePath);
     }
-
+    //Method for Reading CSV file
     public static void readCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
