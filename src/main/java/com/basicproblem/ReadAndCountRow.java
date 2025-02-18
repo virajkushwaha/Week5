@@ -17,7 +17,7 @@ public class ReadAndCountRow {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
-            boolean isHeader = true; 
+            boolean isHeader = true;
 
             System.out.println("\nStudent Records:\n");
 
