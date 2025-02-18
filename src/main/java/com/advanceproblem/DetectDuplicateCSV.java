@@ -36,15 +36,15 @@ public class DetectDuplicateCSV {
                 // Check for duplicates
                 if (uniqueIds.contains(id)) {
                     duplicateCount++;
-                    System.out.println("🔴 Duplicate Found: " + String.join(", ", line));
+                    System.out.println("Duplicate Found: " + String.join(", ", line));
                 } else {
                     uniqueIds.add(id);
                 }
             }
 
-            System.out.println("\n✅ Processing complete. Total Duplicates Found: " + duplicateCount);
+            System.out.println("\nProcessing complete. Total Duplicates Found: " + duplicateCount);
         } catch (IOException | CsvValidationException e) {
-            System.out.println("❌ Error reading CSV: " + e.getMessage());
+            System.out.println("Error reading CSV: " + e.getMessage());
         }
     }
 }
