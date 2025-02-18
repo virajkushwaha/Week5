@@ -19,7 +19,7 @@ public class SortEmployeesBySalary {
     // Method to sort records by salary in descending order and print top 5 employees
     public static void sortAndDisplayTopSalaries(String filename) {
         try (CSVReader reader = new CSVReader(new FileReader(filename))) {
-            List<String[]> records = reader.readAll(); 
+            List<String[]> records = reader.readAll();
 
             if (records.isEmpty()) {
                 System.out.println("The CSV file is empty!");
