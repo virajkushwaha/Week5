@@ -11,17 +11,17 @@ class Student1 {
     private int age;
     private List<String> subjects;
 
-    // ✅ Default constructor (Needed for Jackson)
+    // Default constructor (Needed for Jackson)
     public Student1() {}
 
-    // ✅ Parameterized constructor
+    // Parameterized constructor
     public Student1(String name, int age, List<String> subjects) {
         this.name = name;
         this.age = age;
         this.subjects = subjects;
     }
 
-    // ✅ Getters (Needed for Jackson)
+    //Getters (Needed for Jackson)
     public String getName() { return name; }
     public int getAge() { return age; }
     public List<String> getSubjects() { return subjects; }

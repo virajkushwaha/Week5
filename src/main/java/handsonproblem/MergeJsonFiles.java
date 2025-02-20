@@ -13,8 +13,8 @@ public class MergeJsonFiles {
             ObjectMapper objectMapper = new ObjectMapper();
 
             // Read both JSON files
-            JsonNode json1 = objectMapper.readTree(new File("file1.json"));
-            JsonNode json2 = objectMapper.readTree(new File("file2.json"));
+            JsonNode json1 = objectMapper.readTree(new File("src/main/java/handsonproblem/file1.json"));
+            JsonNode json2 = objectMapper.readTree(new File("src/main/java/handsonproblem/file2.json"));
 
             // Merge JSON objects
             ObjectNode mergedJson = objectMapper.createObjectNode();
@@ -22,7 +22,7 @@ public class MergeJsonFiles {
             mergedJson.setAll((ObjectNode) json2);
 
             // Save merged JSON to a new file
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("merged.json"), mergedJson);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/java/handsonproblem/merged.json"), mergedJson);
 
             // Print merged JSON
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(mergedJson));
