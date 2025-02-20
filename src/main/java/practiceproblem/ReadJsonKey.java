@@ -1,25 +1,38 @@
 package practiceproblem;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.Arrays;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReadJsonKey {
     public static void main(String[] args) {
-        // Creating a JSON object
-        JSONObject student = new JSONObject();
+        try {
+            // Create ObjectMapper instance
+            ObjectMapper objectMapper = new ObjectMapper();
 
-        // Adding basic student details
-        student.put("Name", "Viraj");
-        student.put("age", 12);
-        student.put("email","rajprince031@gmail.com");
-        // Adding subjects as a JSON array
-        List<String> subjects = Arrays.asList("Mathematics", "Computer Science", "Physics");
-        student.put("Subject", new JSONArray(subjects));
+            // Read JSON file into a JsonNode
+            JsonNode rootNode = objectMapper.readTree(new File("src/main/java/practiceproblem/data.json"));
 
-        System.out.println("Name: " + student.getString("Name") );
-        System.out.println("Email: "+ student.getString("email"));
+            // List to store extracted data
+            List<String> extractedData = new ArrayList<>();
+
+            // Iterate through each JSON object
+            if (rootNode.isArray()) {
+                for (JsonNode node : rootNode) {
+                    String name = node.get("name").asText();
+                    String email = node.get("email").asText();
+                    extractedData.add("Name: " + name + ", Email: " + email);
+                }
+            }
+
+            // Print extracted data
+            extractedData.forEach(System.out::println);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
